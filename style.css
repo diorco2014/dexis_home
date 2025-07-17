@@ -760,3 +760,10 @@ footer {
 .footer-icon img {
   vertical-align: middle;
 }
+
+#overview,
+#features,
+#specifications,
+#downloads {
+  scroll-margin-top: 60px;
+}
