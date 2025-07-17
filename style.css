@@ -209,6 +209,11 @@ body {
   width: 200px;
 }
 
+#section2 .left h4 {
+  font-size: 30px;
+  margin-bottom: 36px;
+}
+
 #section2 .left span {
   display: inline-block;
   margin-bottom: 36px;
@@ -231,14 +236,15 @@ body {
 .video-box {
   flex: 1 1 480px;
   max-width: 560px;
+  padding: 72px;
 }
 
 .text-box {
   flex: 1 1 400px;
   max-width: 500px;
-  font-size: 16px;
   line-height: 1.6;
   color: #000;
+  padding: 72px;
 }
 
 .text-box button {
@@ -271,10 +277,10 @@ body {
 /* 각 셀 스타일 */
 .section3-cell {
   flex: 1;
-  padding: 40px 30px;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+  padding: 72px;
 }
 
 /* 가운데 수직선 */
@@ -310,22 +316,26 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #ccc;
-  padding: 60px 20px;
+  padding: 72px 20px;
   align-items: center;
   justify-content: center;
-  gap: 40px;
 }
 
-.section4-left,
+.section4-left {
+  max-width: 560px;
+  padding: 0 72px;
+}
+
 .section4-right {
   flex: 1 1 480px;
   max-width: 560px;
+  padding: 0 72px;
 }
 
 .section4-left h3 {
   font-size: 44px;
   color: #ff5f30;
-  margin-bottom: 16px;
+  margin: -100px 0 36px 0;
   font-weight: 800;
 }
 
@@ -344,24 +354,28 @@ body {
 #section5 {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 20px;
+  padding: 72px 20px;
   background-color: #fff;
   justify-content: center;
   align-items: center;
   gap: 40px;
 }
 
-.section5-left,
-.section5-right {
+.section5-left {
   flex: 1 1 480px;
   max-width: 560px;
+  padding: 0 72px;
+}
+.section5-right {
+  max-width: 560px;
+  padding: 0 72px;
 }
 
 .section5-right h3 {
   color: #ff5f30;
   font-size: 44px;
   font-weight: 800;
-  margin-bottom: 36px;
+  margin: -100px 0 36px 0;
 }
 
 .section5-right p {
@@ -374,7 +388,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #ccc;
-  padding: 60px 20px;
+  padding: 72px 20px;
   align-items: center;
   justify-content: center;
   gap: 40px;
@@ -387,10 +401,10 @@ body {
 }
 
 .section6-left h3 {
-  font-size: 40px;
+  font-size: 44px;
   color: #ff5f30;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin: -150px 0 36px 0;
 }
 
 .section6-left p {
@@ -408,10 +422,9 @@ body {
 #section7 {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 20px;
+  padding: 72px 20px;
   align-items: center;
   justify-content: center;
-  gap: 40px;
   background-color: #fff;
 }
 
@@ -419,6 +432,7 @@ body {
 .section7-right {
   flex: 1 1 480px;
   max-width: 560px;
+  padding: 0 72px;
 }
 
 .section7-left img {
@@ -428,7 +442,7 @@ body {
 }
 
 .section7-right h3 {
-  font-size: 40px;
+  font-size: 44px;
   color: #ff5f30;
   font-weight: 800;
   margin-bottom: 36px;
@@ -444,21 +458,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #ccc;
-  padding: 60px 20px;
+  padding: 72px 20px;
   justify-content: center;
   align-items: center;
-  gap: 40px;
 }
 
 .section8-left,
 .section8-right {
   flex: 1 1 480px;
   max-width: 620px;
+  padding: 0 72px;
 }
 
 .section8-left h3 {
   color: #ff5f30;
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
   margin-bottom: 36px;
 }
@@ -484,16 +498,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
-  padding: 60px 20px;
+  padding: 72px 20px;
   align-items: center;
   justify-content: center;
-  gap: 40px;
 }
 
 .section9-left,
 .section9-right {
   flex: 1 1 480px;
-  max-width: 560px;
+  max-width: 600px;
+  padding: 0 0 0 72px;
 }
 
 .section9-left img {
@@ -503,7 +517,7 @@ body {
 }
 
 .section9-right h3 {
-  font-size: 40px;
+  font-size: 44px;
   color: #ff5f30;
   font-weight: 800;
   margin-bottom: 36px;
@@ -556,12 +570,18 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+th:first-child,
+td:first-child {
+  width: 35%; /* 첫 번째 열을 일정 비율로 설정 */
+  white-space: nowrap;
 }
 
 th,
 td {
-  padding: 8px;
+  padding: 18px;
   border: 1px solid #ccc;
 }
 
@@ -569,6 +589,14 @@ th {
   background-color: #eee;
   text-align: left;
   border-bottom: 2px solid #999; /* 진한 하단 테두리 */
+}
+
+td:nth-child(1) {
+  font-weight: 400;
+}
+
+td:nth-child(2) {
+  font-weight: 700;
 }
 
 tbody tr:nth-child(odd) {
@@ -586,28 +614,32 @@ tbody tr:nth-child(even) {
 #downloads {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 20px;
+  padding: 72px 20px;
   background-color: #fff;
   align-items: center;
   justify-content: center;
-  gap: 40px;
 }
 
-.downloads-left,
+.downloads-left {
+  max-width: 560px;
+  padding: 0 72px;
+  margin-top: -100px;
+}
 .downloads-right {
   flex: 1 1 480px;
   max-width: 560px;
+  padding: 0 72px;
 }
 
-.downloads-left h2 {
-  font-size: 28px;
+.downloads-left h3 {
+  font-size: 44px;
   color: #000;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 36px;
 }
 
 .downloads-left p {
-  font-size: 16px;
+  font-size: 20px;
   color: #000;
   line-height: 1.6;
   margin-bottom: 24px;
@@ -626,6 +658,7 @@ tbody tr:nth-child(even) {
 }
 
 .downloads-right img {
+  margin-left: 150px;
   width: 300px;
   height: auto;
   display: block;
