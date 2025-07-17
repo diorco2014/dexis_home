@@ -80,6 +80,16 @@ body {
   align-items: center;
 }
 
+.header-nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: white; /* 필요에 따라 배경 지정 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 선택사항 */
+}
+
 .header-nav .left {
   width: 50px;
 }
@@ -664,7 +674,7 @@ tbody tr:nth-child(even) {
   display: block;
 }
 
-#section15 {
+#section10 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -673,13 +683,13 @@ tbody tr:nth-child(even) {
   padding: 40px 20px;
 }
 
-#section15 p {
+#section10 p {
   margin: 0 0 36px;
   font-size: 14px;
   color: #000;
 }
 
-#section15 img {
+#section10 img {
   max-width: 100%;
   height: auto;
 }
@@ -702,7 +712,7 @@ footer {
 
 .footer-section h4 {
   color: #ff5f30;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 12px;
 }
 

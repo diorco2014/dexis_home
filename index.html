@@ -485,9 +485,9 @@
       </div>
     </section>
 
-    <section id="section15">
+    <section id="section10">
       <div>
-        <p><small>DXIS00130</small></p>
+        <p>DXIS00130</p>
       </div>
       <div class="wysiwyg">
         <img
@@ -545,6 +545,14 @@
           });
         });
 
+        window.addEventListener('scroll', function () {
+          const headerNav = document.querySelector('.header-nav');
+          if (window.scrollY > 100) {
+            headerNav.classList.add('fixed');
+          } else {
+            headerNav.classList.remove('fixed');
+          }
+        });
         const buttons = document.querySelectorAll('.accordion-button');
 
         buttons.forEach(button => {
