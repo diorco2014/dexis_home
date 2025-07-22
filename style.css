@@ -602,7 +602,6 @@ table {
 th:first-child,
 td:first-child {
   width: 35%; /* 첫 번째 열을 일정 비율로 설정 */
-  white-space: nowrap;
 }
 
 th,
