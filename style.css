@@ -714,7 +714,7 @@ tbody tr:nth-child(even) {
   text-align: center;
   padding: 40px 20px;
   height: 223px;
-  margin: 0px 250px;
+  margin: 0px 150px;
 }
 
 /* service section */
@@ -904,6 +904,22 @@ footer {
     margin: 0 auto;
   }
 
+  /* contact_us section */
+  #contact_us,
+  #service {
+    text-align: center;
+    padding: 40px 20px;
+    height: 223px;
+    margin: 0px 50px;
+  }
+  #contact_us h2 {
+    font-size: 36px;
+  }
+
+  #working_hours .text .culumn {
+    margin: 0 20px;
+  }
+
   .footer-top {
     padding: 20px 20px;
     gap: 70px;
@@ -1031,16 +1047,39 @@ footer {
   .downloads-right {
     padding: 20px;
   }
+
+  /* contact_us section */
+  #contact_us,
+  #service {
+    padding: 20px 20px;
+    height: 223px;
+    margin: 0px 50px;
+  }
+  #contact_us h2 {
+    font-size: 24px;
+  }
+
+  #working_hours .text .culumn {
+    margin: 0 20px;
+  }
+
+  #working_hours .text .culumn h3 {
+    font-size: 20px;
+  }
+  #working_hours .text .culumn p {
+    font-size: 16px;
+  }
+
   .footer-top {
     padding: 20px 20px;
-    gap: 10px;
+    gap: 30px;
   }
   .footer-section {
-    text-align: center;
+    text-align: left;
   }
 
   .footer-bottom .policy-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
   }
 }
