@@ -913,7 +913,7 @@ footer {
   }
 
   .footer-bottom .policy-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
   }
 }
