@@ -863,17 +863,30 @@ footer {
 
 @media (max-width: 768px) {
   .font-44 {
-    font-size: 36px;
+    font-size: 30px;
   }
   .video-box {
     flex: 1 1 480px;
     max-width: 560px;
     padding: 72px;
   }
+  #section1,
+  #section2,
+  #downloads {
+    flex-direction: column;
+    padding: 10px;
+  }
   #section1 {
-    height: 530px;
+    height: 420px;
   }
 
+  #section1 .left,
+  #section1 .right {
+    width: 100%;
+  }
+  #section1 .left img {
+    width: 70%;
+  }
   #section1 .right h3 {
     margin: 0 0 12px;
     font-weight: 800;
@@ -884,7 +897,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 24px 72px;
+    padding: 24px;
   }
 
   #overview {
@@ -903,7 +916,7 @@ footer {
   }
   .features-content .video-box,
   .features-content .text-box {
-    padding: 20px 72px;
+    padding: 20px 24px;
   }
   .section3-row {
     margin: 0 10px;
@@ -922,10 +935,13 @@ footer {
     padding: 24px;
   }
   .section4-left,
+  .section4-right,
+  .section5-left,
   .section5-right,
   .section6-left,
   .section7-right,
   .section8-left,
+  .section9-left,
   .section9-right {
     padding: 24px;
   }
@@ -935,8 +951,11 @@ footer {
   .section7-right h3,
   .section8-left h3,
   .section9-right h3 {
-    font-size: 36px;
+    font-size: 30px;
     margin: 00px 0 36px 0;
+  }
+  .section9-left img {
+    margin: 0 auto;
   }
   .downloads-left {
     margin-top: 10px;
