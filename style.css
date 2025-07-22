@@ -906,10 +906,10 @@ footer {
 
   .footer-top {
     padding: 20px 20px;
-    gap: 10px;
+    gap: 70px;
   }
   .footer-section {
-    text-align: center;
+    text-align: left;
   }
 
   .footer-bottom .policy-links {
