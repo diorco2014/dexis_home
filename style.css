@@ -843,6 +843,55 @@ footer {
   #section2 .right {
     margin: 0 50px;
   }
+
+  .section3-row {
+    margin: 0 10px;
+  }
+  .section3-cell {
+    padding: 10px;
+  }
+  .section3-cell .font-24 {
+    font-size: 20px;
+  }
+
+  #section4,
+  #section5,
+  #section6,
+  #section7 {
+    padding: 24px;
+  }
+  .section4-left,
+  .section4-right,
+  .section5-left,
+  .section5-right,
+  .section6-left,
+  .section7-right,
+  .section8-left,
+  .section9-left,
+  .section9-right {
+    padding: 24px;
+    max-width: 820px;
+  }
+  .section4-left h3,
+  .section5-right h3,
+  .section6-left h3,
+  .section7-right h3,
+  .section8-left h3,
+  .section9-right h3 {
+    font-size: 36px;
+    margin: 00px 0 36px 0;
+  }
+  .section9-left img {
+    margin: 0 auto;
+  }
+
+  .downloads-left {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .features-content {
     gap: 10px;
     text-align: center;
@@ -944,6 +993,7 @@ footer {
   .section9-left,
   .section9-right {
     padding: 24px;
+    max-width: 620px;
   }
   .section4-left h3,
   .section5-right h3,
