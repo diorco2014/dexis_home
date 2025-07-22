@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEXIS Korea</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css?ver=1.1" />
+    <link rel="stylesheet" href="form.css?ver=1.1" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-top"></div>
+      <div class="header-main">
+        <div class="left">
+          <a href="/"><img src="/images/logo.svg" alt="Home" class="logo" /></a>
+        </div>
+        <div class="right">
+          <div class="main-menu">
+            <ul>
+              <li class="open">IS 3800</li>
+              <!-- <li>회사</li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="header-nav">
+        <div class="left"></div>
+        <div class="right">
+          <div class="main-menu">
+            <ul>
+              <li><a href="index.html#overview">개요</a></li>
+              <li><a href="index.html#features">특징</a></li>
+              <li><a href="index.html#specifications">사양</a></li>
+              <li><a href="index.html#downloads">다운로드</a></li>
+              <li><a href="contact.html#contact_us">문의하기</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="service">
+      <h2 class="font-44 word-wrap-text">장비, AS 관련 질문 등 모든 요구사항에 대해 저희에게 문의하세요.</h2>
+    </section>
+    <section id="working_hours">
+      <div class="text">
+        <div class="culumn">
+          <h3>AS 신청</h3>
+          <p>월요일~금요일<br />오전 9시~오후 6시</p>
+        </div>
+
+        <div class="culumn">
+          <h3>문의</h3>
+          <p>070-5030-3605<br />info@dexiskorea.com</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="form-mail">
+      <form action="/submit" method="post" class="contact-form">
+        <div class="form-group" style="display: none">
+          <label for="gubun">서비스 *</label>
+          <input type="text" id="gubun" name="gubun" value="AS 신청" required />
+        </div>
+
+        <div class="form-group">
+          <label for="hospitalname">병원명 *</label>
+          <input type="text" id="hospitalname" name="hospitalname" required />
+        </div>
+
+        <div class="form-group">
+          <label for="region">지역 *</label>
+          <select id="region" name="region" required>
+            <option value="" disabled selected hidden>지역을 선택해주세요</option>
+            <option value="서울특별시">서울특별시</option>
+            <option value="부산광역시">부산광역시</option>
+            <option value="대구광역시">대구광역시</option>
+            <option value="인천광역시">인천광역시</option>
+            <option value="광주광역시">광주광역시</option>
+            <option value="대전광역시">대전광역시</option>
+            <option value="울산광역시">울산광역시</option>
+            <option value="세종특별자치시">세종특별자치시</option>
+            <option value="경기도">경기도</option>
+            <option value="강원특별자치도">강원특별자치도</option>
+            <option value="충청북도">충청북도</option>
+            <option value="충청남도">충청남도</option>
+            <option value="전북특별자치도">전북특별자치도</option>
+            <option value="전라남도">전라남도</option>
+            <option value="경상북도">경상북도</option>
+            <option value="경상남도">경상남도</option>
+            <option value="제주특별자치도">제주특별자치도</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="email">이메일 *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">연락처 *</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">AS 요청 사항 *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <!-- 
+        <div class="form-group checkbox-group">
+          <p><strong>개인정보 보호정책 및 이메일 수신 동의</strong></p>
+
+          <label class="checkbox-inline">
+            <input type="checkbox" required />
+            본인은 귀하의 <a href="#">개인정보 보호정책</a>을 읽었으며 이에 동의합니다 . *
+          </label>
+
+          <label class="checkbox-inline">
+            <input type="checkbox" />
+            DEXIS에서 가끔씩 자사 강좌, 교육, 이벤트 및 제품에 대한 마케팅 정보를 이메일로 발송하는 것에 동의합니다.
+            <br />
+            언제든지 수신을 거부할 수 있습니다.
+          </label>
+        </div> -->
+
+        <div class="form-submit">
+          <button type="submit">문의하기</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-section">
+          <h4>회사</h4>
+          <ul>
+            <li><a href="https://diorco.com">About diorco</a></li>
+            <li><a href="https://dexis.com/en-us/about-us">About DEXIS</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>지원</h4>
+          <ul>
+            <li><a href="/service.html">AS 신청</a></li>
+            <li><a href="/contact.html">문의하기</a></li>
+            <li>
+              <a href="/images/TA3975_IS 3800 Family_User and Installation Guide_RevD_DE.pdf" target="_blank">
+                IS 3800 User Guide
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-icon">유튜브</div>
+        <div class="policy-links">
+          <a href="#">이용 약관</a>
+          <a href="#">개인정보 보호정책</a>
+          <a href="#">쿠키 정책</a>
+          <a href="#">규정 준수 및 투명성</a>
+          <a href="#">최종 사용자 사용권 계약</a>
+          <a href="#">특허</a>
+        </div>
+        <div class="copyright">
+          © Copyright Dental Imaging Technologies Corporation. <br />
+          All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <!-- 폼 알럿창 -->
+    <div id="form-toast" class="form-toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

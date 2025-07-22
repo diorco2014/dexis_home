@@ -122,6 +122,11 @@ body {
   cursor: pointer;
 }
 
+.header-nav .main-menu ul li.is-active {
+  color: #ff5f30;
+  cursor: pointer;
+}
+
 /* Section 1 */
 #section1 {
   height: 433px;
@@ -181,6 +186,10 @@ body {
 .font-44 {
   font-size: 44px;
 }
+.word-wrap-text {
+  word-break: keep-all;
+  white-space: normal;
+}
 
 /* Primary button */
 .btn-primary {
@@ -197,7 +206,7 @@ body {
 
 /* Section 2 (testimonial) */
 #section2 {
-  height: 423px;
+  min-height: 423px;
   background-color: #cccccc;
   display: flex;
   align-items: center;
@@ -504,6 +513,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* section9 section */
 #section9 {
   display: flex;
   flex-wrap: wrap;
@@ -521,7 +531,8 @@ body {
 }
 
 .section9-left img {
-  width: 300px;
+  width: 200px;
+  margin-left: 150px;
   height: auto;
   display: block;
 }
@@ -539,6 +550,7 @@ body {
   line-height: 1.6;
 }
 
+/* specifications section */
 #specifications {
   width: 100%;
   max-width: 100%;
@@ -548,7 +560,8 @@ body {
 
 .accordion {
   margin: 0 auto;
-  width: 1296px;
+  width: 95%;
+  max-width: 1296px;
   background-color: #ccc;
 }
 
@@ -621,6 +634,7 @@ tbody tr:nth-child(even) {
   font-weight: bold;
 }
 
+/* downloads section */
 #downloads {
   display: flex;
   flex-wrap: wrap;
@@ -674,6 +688,7 @@ tbody tr:nth-child(even) {
   display: block;
 }
 
+/* section10 section */
 #section10 {
   display: flex;
   flex-direction: column;
@@ -692,6 +707,49 @@ tbody tr:nth-child(even) {
 #section10 img {
   max-width: 100%;
   height: auto;
+}
+
+/* contact_us section */
+#contact_us {
+  text-align: center;
+  padding: 40px 20px;
+  height: 223px;
+  margin: 0px 250px;
+}
+
+/* service section */
+#service {
+  text-align: center;
+  padding: 40px 20px;
+  height: 223px;
+  margin: 0px 250px;
+}
+
+#working_hours {
+  background-color: #666;
+  color: white;
+  padding: 40px 0;
+}
+#working_hours .text {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: left;
+}
+#working_hours .text .culumn {
+  margin: 0 100px;
+}
+
+#working_hours h3 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+#working_hours p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 /* Footer */
@@ -764,6 +822,144 @@ footer {
 #overview,
 #features,
 #specifications,
-#downloads {
+#downloads,
+#contact_us,
+#service {
   scroll-margin-top: 60px;
+}
+
+@media (max-width: 1024px) {
+  .accordion {
+    margin: 0 auto;
+    width: 95%;
+    background-color: #ccc;
+  }
+
+  #section1 .right .text {
+    padding: 20px;
+  }
+
+  #section2 .left,
+  #section2 .right {
+    margin: 0 50px;
+  }
+  .features-content {
+    gap: 10px;
+    text-align: center;
+  }
+  .features-content .video-box,
+  .features-content .text-box {
+    padding: 20px 72px;
+  }
+  .downloads-right img {
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .font-44 {
+    font-size: 36px;
+  }
+  .video-box {
+    flex: 1 1 480px;
+    max-width: 560px;
+    padding: 72px;
+  }
+  #section1 {
+    height: 530px;
+  }
+
+  #section1 .right h3 {
+    margin: 0 0 12px;
+    font-weight: 800;
+  }
+
+  #section1 .right .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 72px;
+  }
+
+  #overview {
+    padding: 40px 20px;
+    height: 400px;
+  }
+
+  #section2 .left {
+    margin: 0;
+    width: 90%;
+    max-width: 100%;
+  }
+  .features-content {
+    gap: 10px;
+    text-align: center;
+  }
+  .features-content .video-box,
+  .features-content .text-box {
+    padding: 20px 72px;
+  }
+  .section3-row {
+    margin: 0 10px;
+  }
+  .section3-cell {
+    padding: 10px;
+  }
+  .section3-cell .font-24 {
+    font-size: 16px;
+  }
+
+  #section4,
+  #section5,
+  #section6,
+  #section7 {
+    padding: 24px;
+  }
+  .section4-left,
+  .section5-right,
+  .section6-left,
+  .section7-right,
+  .section8-left,
+  .section9-right {
+    padding: 24px;
+  }
+  .section4-left h3,
+  .section5-right h3,
+  .section6-left h3,
+  .section7-right h3,
+  .section8-left h3,
+  .section9-right h3 {
+    font-size: 36px;
+    margin: 00px 0 36px 0;
+  }
+  .downloads-left {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .overview h2,
+  .downloads-left h3 {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+  .footer-top {
+    padding: 20px 20px;
+    gap: 10px;
+  }
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-bottom .policy-links {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
