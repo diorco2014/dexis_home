@@ -168,6 +168,9 @@ body {
   text-align: center;
   padding: 40px 20px;
   height: 323px;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* Font sizes */
@@ -759,9 +762,11 @@ footer {
   font-size: 14px;
   color: #000;
 }
+
 .footer-icon img {
   width: 35px;
 }
+
 /* Footer top */
 .footer-top {
   background-color: #ccc;
@@ -775,6 +780,7 @@ footer {
 .footer-section h4 {
   color: #ff5f30;
   font-size: 20px;
+  margin-top: 0;
   margin-bottom: 12px;
 }
 
@@ -799,6 +805,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 20px;
+  padding: 50px 0;
 }
 
 .footer-bottom .policy-links {
@@ -859,6 +866,23 @@ footer {
   .section9-right h3 {
     font-size: 36px;
     margin: 00px 0 36px 0;
+  }
+
+  .downloads-left {
+    margin-top: 10px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .downloads-right {
+    max-width: 360px;
+    padding: 0 72px;
+    margin: 0 auto;
+  }
+  .downloads-right img {
+    margin: 0 auto;
   }
 }
 
@@ -921,6 +945,7 @@ footer {
 
   .downloads-left {
     margin-top: 10px;
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
