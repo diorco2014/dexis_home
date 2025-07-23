@@ -189,6 +189,9 @@ body {
 .font-44 {
   font-size: 44px;
 }
+.text-color {
+  font-weight: 700;
+}
 .word-wrap-text {
   word-break: keep-all;
   white-space: normal;
