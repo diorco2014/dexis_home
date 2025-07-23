@@ -759,7 +759,9 @@ footer {
   font-size: 14px;
   color: #000;
 }
-
+.footer-icon img {
+  width: 35px;
+}
 /* Footer top */
 .footer-top {
   background-color: #ccc;
