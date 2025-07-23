@@ -830,6 +830,36 @@ footer {
   scroll-margin-top: 60px;
 }
 
+@media (max-width: 1430px) {
+  #section4,
+  #section5,
+  #section6,
+  #section7 {
+    padding: 24px;
+  }
+  .section4-left,
+  .section4-right,
+  .section5-left,
+  .section5-right,
+  .section6-left,
+  .section7-right,
+  .section8-left,
+  .section9-left,
+  .section9-right {
+    padding: 24px;
+    max-width: 480px;
+  }
+  .section4-left h3,
+  .section5-right h3,
+  .section6-left h3,
+  .section7-right h3,
+  .section8-left h3,
+  .section9-right h3 {
+    font-size: 36px;
+    margin: 00px 0 36px 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .accordion {
     margin: 0 auto;
