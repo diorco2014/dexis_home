@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
 
     // API 호출
-    fetch('https://devapi.motiv-ai.com/api/dexiskorea/formmail', {
+    fetch('https://api.motiv-ai.com/api/dexiskorea/formmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
