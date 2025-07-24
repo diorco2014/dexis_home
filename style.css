@@ -911,6 +911,9 @@ footer {
   .downloads-right img {
     margin: 0 auto;
   }
+  #service {
+    margin: 0px 20px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1010,7 +1013,7 @@ footer {
     text-align: center;
     padding: 40px 20px;
     height: 223px;
-    margin: 0px 50px;
+    margin: 0px 20px;
   }
   #contact_us h2 {
     font-size: 36px;
@@ -1112,8 +1115,9 @@ footer {
   #section4,
   #section5,
   #section6,
-  #section7 {
-    padding: 24px;
+  #section7,
+  #section8 {
+    padding: 12px;
   }
   .section4-left,
   .section4-right,
@@ -1124,7 +1128,7 @@ footer {
   .section8-left,
   .section9-left,
   .section9-right {
-    padding: 24px;
+    padding: 12px;
     max-width: 620px;
   }
   .section4-left h3,
@@ -1153,7 +1157,8 @@ footer {
   }
   .downloads-left,
   .downloads-right {
-    padding: 20px;
+    padding: 0;
+    max-width: 95%;
   }
   .downloads-left {
     display: flex;
@@ -1165,11 +1170,15 @@ footer {
   #contact_us,
   #service {
     padding: 20px 20px;
-    height: 223px;
-    margin: 0px 50px;
+    height: 140px;
+    margin: 0;
   }
-  #contact_us h2 {
+  #contact_us h2,
+  #service h2 {
     font-size: 24px;
+  }
+  #contact_us span {
+    font-size: 16px;
   }
 
   #working_hours .text .culumn {
