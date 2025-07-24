@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'NanumGothic';
+  src: url(https://dexiskorea.com/webfont/NanumGothic/NanumGothic.eot);
+  src: url(https://dexiskorea.com/webfont/NanumGothic/NanumGothic.eot?#iefix) format('embedded-opentype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothic.woff) format('woff'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumGothicBold';
+  src: url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicBold.otf) format('embedded-opentype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicBold.ttf) format('truetype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'NanumGothicExtraBold';
+  src: url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicExtraBold.otf) format('embedded-opentype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicExtraBold.ttf) format('truetype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicExtraBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'NanumGothicLight';
+  src: url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicLight.otf) format('embedded-opentype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicLight.ttf) format('truetype'),
+    url(https://dexiskorea.com/webfont/NanumGothic/NanumGothicLight.woff) format('woff');
+}
