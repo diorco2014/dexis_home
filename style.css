@@ -653,7 +653,7 @@ tbody tr:nth-child(even) {
 }
 
 .downloads-left {
-  max-width: 560px;
+  max-width: 600px;
   padding: 0 72px;
   margin-top: -100px;
 }
@@ -677,16 +677,25 @@ tbody tr:nth-child(even) {
   margin-bottom: 24px;
 }
 
-.downloads-left .btn-primary {
+.download-link::before {
+  content: '🔸'; /* 또는 Font Awesome: \f019 */
+  margin-right: 0.4em;
+  font-size: 1em;
+  vertical-align: text-top;
+}
+
+.download-link {
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #ff5f30;
-  color: #fff;
-  border-radius: 30px;
   text-decoration: none;
-  text-align: center;
-  font-weight: 600;
-  font-size: 16px;
+  color: #0066cc;
+  font-weight: 500;
+  position: relative;
+  padding: 5px;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+  color: #004c99;
 }
 
 .downloads-right img {
@@ -1145,7 +1154,12 @@ footer {
   .downloads-right {
     padding: 20px;
   }
-
+  .downloads-left {
+    display: flex;
+    flex-direction: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
   /* contact_us section */
   #contact_us,
   #service {
