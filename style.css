@@ -168,7 +168,7 @@ body {
 #overview {
   text-align: center;
   padding: 40px 20px;
-  height: 323px;
+  height: 243px;
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
@@ -364,7 +364,7 @@ body {
 .section4-left h3 {
   font-size: 44px;
   color: #ff5f30;
-  margin: -100px 0 36px 0;
+  margin: -85px 0 36px 0;
   font-weight: 800;
 }
 
@@ -404,7 +404,7 @@ body {
   color: #ff5f30;
   font-size: 44px;
   font-weight: 800;
-  margin: -100px 0 36px 0;
+  margin: -60px 0 36px 0;
 }
 
 .section5-right p {
@@ -425,15 +425,14 @@ body {
 
 .section6-left,
 .section6-right {
-  flex: 1 1 480px;
-  max-width: 560px;
+  max-width: 600px;
 }
 
 .section6-left h3 {
   font-size: 44px;
   color: #ff5f30;
   font-weight: 800;
-  margin: -150px 0 36px 0;
+  margin: -175px 0 36px 0;
 }
 
 .section6-left p {
@@ -850,6 +849,14 @@ footer {
 }
 
 @media (max-width: 1430px) {
+  .features-content {
+    gap: 10px;
+    text-align: left;
+  }
+  .features-content .video-box,
+  .features-content .text-box {
+    padding: 20px 20px;
+  }
   #section4,
   #section5,
   #section6,
@@ -961,13 +968,27 @@ footer {
     align-items: center;
     justify-content: center;
   }
+  #features {
+    padding: 20px 20px 40px;
+  }
   .features-content {
     gap: 10px;
     text-align: center;
   }
   .features-content .video-box,
   .features-content .text-box {
-    padding: 20px 72px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+  }
+  .features-content .text-box p {
+    margin: 0 0 15px;
+  }
+
+  .features-content .text-box a {
+    margin: 0;
   }
   .downloads-right img {
     margin: 0 auto;

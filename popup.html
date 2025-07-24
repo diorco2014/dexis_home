@@ -1,0 +1,63 @@
+<style>
+  #popup .popup-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  #popup .popup-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    animation: bounce 0.6s ease;
+  }
+
+  #popup .popup-text h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #111;
+  }
+
+  #popup .popup-text p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  #popup .popup-button {
+    display: inline-block;
+    background: #f0563c;
+    color: white;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  #popup .popup-button:hover {
+    background: #d8452b;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+<div class="popup-inner">
+  <div class="popup-icon">🎉</div>
+  <div class="popup-text">
+    <h3>신규 기능 오픈!</h3>
+    <p>더 빠르고 간편한 UI를 지금 체험해보세요.</p>
+    <a href="/feature" class="popup-button">지금 보기</a>
+  </div>
+</div>
