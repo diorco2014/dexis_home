@@ -7,8 +7,6 @@
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link href="nanum-gothic.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css?ver=1.7.3" />
-    <link rel="stylesheet" href="modal.css?ver=1.7.3" />
-    <link rel="stylesheet" href="popup.css?ver=1.7.3" />
     <link rel="stylesheet" href="form.css?ver=1.7.3" />
   </head>
   <body>
@@ -161,8 +159,8 @@
 
       <div class="footer-bottom">
         <div class="policy-links">
-          <a href="#">이용 약관</a>
-          <a href="#">개인정보 보호정책</a>
+          <a href="/pdf/DEXIS koera 이용약관.pdf" target="_blank">이용 약관</a>
+          <a href="/pdf/DEXIS korea 개인정보 처리방침.pdf">개인정보 보호정책</a>
           <a href="#">규정 준수 및 투명성</a>
           <a href="#">최종 사용자 사용권 계약</a>
           <a href="#">특허</a>
@@ -175,31 +173,6 @@
       </div>
     </footer>
 
-    <!-- 약관/정책용 모달 -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="modal-title">제목</h2>
-          <button id="close-modal">×</button>
-        </div>
-        <div class="modal-body" id="modal-body"></div>
-      </div>
-    </div>
-
-    <!-- 마케팅용 팝업 -->
-    <div id="popup">
-      <div class="modal-header">
-        <h2 id="popup-title">공지</h2>
-        <button id="close-popup">×</button>
-      </div>
-      <div class="modal-body" id="popup-body"></div>
-      <div class="modal-footer">
-        <label><input type="checkbox" id="no-popup-today" /> 오늘 다시 보지 않기</label>
-      </div>
-    </div>
-
     <script src="script.js"></script>
-    <script src="modal.js"></script>
-    <script src="popup.js"></script>
   </body>
 </html>

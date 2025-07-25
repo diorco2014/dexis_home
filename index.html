@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="style.css?ver=1.7.3" />
     <link rel="stylesheet" href="modal.css?ver=1.7.3" />
     <link rel="stylesheet" href="popup.css?ver=1.7.3" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWFSJMBGLN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-SWFSJMBGLN');
+    </script>
   </head>
   <body>
     <div class="header">
@@ -516,8 +528,8 @@
         <div class="footer-section">
           <h4>지원</h4>
           <ul>
-            <li><a href="/service.html">AS 신청</a></li>
-            <li><a href="/contact.html">문의하기</a></li>
+            <li><a href="/service.html#service">A/S 신청</a></li>
+            <li><a href="/contact.html#contact_us">문의하기</a></li>
             <li>
               <a href="#downloads"> IS 3800 User Guide </a>
             </li>
@@ -530,11 +542,13 @@
 
       <div class="footer-bottom">
         <div class="policy-links">
-          <a href="#">이용 약관</a>
-          <a href="#">개인정보 보호정책</a>
-          <a href="#">규정 준수 및 투명성</a>
-          <a href="#">최종 사용자 사용권 계약</a>
-          <a href="#">특허</a>
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS koera 이용약관.pdf')">이용 약관</a>
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS korea 개인정보 처리방침.pdf')"
+            >개인정보 보호정책</a
+          >
+          <a href="#" class="pdf-link">규정 준수 및 투명성</a>
+          <a href="#" class="pdf-link">최종 사용자 사용권 계약</a>
+          <a href="#" class="pdf-link">특허</a>
         </div>
         <div class="address">
           경기도 용인시 기흥구 중부대로 184 지식산업센터 518호<br />
@@ -544,26 +558,20 @@
       </div>
     </footer>
 
-    <!-- 약관/정책용 모달 -->
-    <div id="modal" class="modal">
+    <!-- 모달 -->
+    <div class="modal-overlay" id="pdfModal">
       <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="modal-title">제목</h2>
-          <button id="close-modal">×</button>
-        </div>
-        <div class="modal-body" id="modal-body"></div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <iframe id="pdfFrame" class="modal-pdf" src=""></iframe>
       </div>
     </div>
 
     <!-- 마케팅용 팝업 -->
     <div id="popup">
-      <div class="modal-header">
-        <h2 id="popup-title">공지</h2>
-        <button id="close-popup">×</button>
-      </div>
-      <div class="modal-body" id="popup-body"></div>
-      <div class="modal-footer">
-        <label><input type="checkbox" id="no-popup-today" /> 오늘 다시 보지 않기</label>
+      <a href="/contact.html#contact_us"><img src="/images/popup/IS3800_250723.jpg" alt="팝업 이미지" /></a>
+      <div id="popup-footer">
+        <label><input type="checkbox" id="hide-today" /> 오늘 하루 보지 않기</label>
+        <button id="popup-close">닫기</button>
       </div>
     </div>
 

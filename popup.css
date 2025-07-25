@@ -1,91 +1,59 @@
 #popup {
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
   z-index: 9999;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   display: none;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  text-align: center;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
 }
 
-/* 공통 내부 구조 */
-#popup .modal-header,
-#popup .modal-body,
-#popup .modal-footer {
-  padding: 16px 20px;
+#popup img {
+  max-width: 100%;
+  max-height: 100vh;
+  height: auto;
+  display: block;
 }
 
-#popup .modal-header {
-  background: #f5f5f5;
+#popup-footer {
+  padding: 10px;
+  font-size: 14px;
+  background: #f9f9f9;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  position: sticky;
+  bottom: 0;
 }
 
-#popup .modal-body {
-  max-height: 260px;
-  overflow-y: auto;
-  font-size: 14px;
-  color: #333;
-  line-height: 1.5;
-}
-
-#popup .modal-footer {
-  background: #fafafa;
-  font-size: 13px;
-  color: #555;
-  border-top: 1px solid #ddd;
-}
-
-#popup button {
+#popup-close {
+  cursor: pointer;
   background: none;
   border: none;
-  font-size: 18px;
-  color: #666;
-  cursor: pointer;
+  font-size: 14px;
+  color: #333;
 }
 
-/* 활성화 상태 */
-#popup.show {
-  display: block;
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* === 반응형 위치 설정 === */
-
-/* ✅ 모바일: 하단 슬라이드 */
-@media screen and (max-width: 767px) {
-  #popup {
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    width: 90%;
-    max-width: 360px;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-
-  #popup.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
+@media (max-width: 1024px) {
+  #popup img {
+    max-width: 400px;
   }
 }
-
-/* ✅ PC: 중앙 팝업 + 확대 등장 */
-@media screen and (min-width: 768px) {
-  #popup {
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    transform: translate(-50%, -50%) scale(0.8);
+@media (max-width: 768px) {
+  #popup-footer label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
   }
-
-  #popup.show {
-    transform: translate(-50%, -50%) scale(1);
+  #popup-close {
+    font-size: 12px;
   }
 }
