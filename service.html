@@ -8,6 +8,7 @@
     <link href="nanum-gothic.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css?ver=1.7.3" />
     <link rel="stylesheet" href="form.css?ver=1.7.3" />
+    <link rel="stylesheet" href="modal.css?ver=1.7.3" />
   </head>
   <body>
     <div class="header">
@@ -161,11 +162,18 @@
 
       <div class="footer-bottom">
         <div class="policy-links">
-          <a href="/pdf/DEXIS koera 이용약관.pdf" target="_blank">이용 약관</a>
-          <a href="/pdf/DEXIS korea 개인정보 처리방침.pdf">개인정보 보호정책</a>
-          <a href="#">규정 준수 및 투명성</a>
-          <a href="#">최종 사용자 사용권 계약</a>
-          <a href="#">특허</a>
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS koera 이용약관.pdf')">이용 약관</a>
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS korea 개인정보 처리방침.pdf')"
+            >개인정보 보호정책</a
+          >
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS Korea 쿠키 정책.pdf')">쿠키 정책</a>
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS Korea 규정준수 및 투명성.pdf')"
+            >규정 준수 및 투명성</a
+          >
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS Korea 최종 사용자 사용권 계약.pdf')"
+            >최종 사용자 사용권 계약</a
+          >
+          <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS Korea 특허.pdf')">특허</a>
         </div>
         <div class="address">
           경기도 용인시 기흥구 중부대로 184 지식산업센터 518호<br />
@@ -175,6 +183,15 @@
       </div>
     </footer>
 
+    <!-- 모달 -->
+    <div class="modal-overlay" id="pdfModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <iframe id="pdfFrame" class="modal-pdf" src=""></iframe>
+      </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>
