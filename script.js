@@ -61,10 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 폼 메일 보내기
-  const form = document.querySelector('#form-mail form');
-  const submitBtn = form.querySelector("button[type='submit']");
-
   // 플로팅 메시지 표시 함수
   function showToast(message, isSuccess = true) {
     const toast = document.getElementById('form-toast');
@@ -79,41 +75,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // 폼 제출 이벤트 처리
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  // 폼 메일 보내기
+  const form = document.querySelector('#form-mail form');
+  if (form) {
+    const submitBtn = form.querySelector("button[type='submit']");
 
-    // 버튼 상태 업데이트
-    submitBtn.disabled = true;
-    submitBtn.textContent = '전송 중...';
+    // 폼 제출 이벤트 처리
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+      // 버튼 상태 업데이트
+      submitBtn.disabled = true;
+      submitBtn.textContent = '전송 중...';
 
-    // API 호출
-    fetch('https://api.motiv-ai.com/api/dexiskorea/formmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('서버 오류');
-        return response.json();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // API 호출
+      fetch('https://api.motiv-ai.com/api/dexiskorea/formmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       })
-      .then(result => {
-        form.reset();
-        showToast('문의가 성공적으로 접수되었습니다.', true);
-      })
-      .catch(error => {
-        console.error(error);
-        showToast('오류가 발생했습니다. 다시 시도해주세요.', false);
-      })
-      .finally(() => {
-        // 버튼 원상복구
-        submitBtn.disabled = false;
-        submitBtn.textContent = '문의하기';
-      });
-  });
+        .then(response => {
+          if (!response.ok) throw new Error('서버 오류');
+          return response.json();
+        })
+        .then(result => {
+          form.reset();
+          showToast('문의가 성공적으로 접수되었습니다.', true);
+        })
+        .catch(error => {
+          console.error(error);
+          showToast('오류가 발생했습니다. 다시 시도해주세요.', false);
+        })
+        .finally(() => {
+          // 버튼 원상복구
+          submitBtn.disabled = false;
+          submitBtn.textContent = '문의하기';
+        });
+    });
+  }
+
+  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+  const desktopLinks = document.getElementById('policyLinksDesktop');
+  const mobileLinks = document.getElementById('policyLinksMobile');
+
+  if (isMobile) {
+    desktopLinks.style.display = 'none';
+    mobileLinks.style.display = 'flex';
+  } else {
+    desktopLinks.style.display = 'flex';
+    mobileLinks.style.display = 'none';
+  }
 });

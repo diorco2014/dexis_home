@@ -6,9 +6,9 @@
     <title>DEXIS Korea</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link href="nanum-gothic.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?ver=1.7.4" />
-    <link rel="stylesheet" href="form.css?ver=1.7.4" />
-    <link rel="stylesheet" href="modal.css?ver=1.7.4" />
+    <link rel="stylesheet" href="style.css?ver=1.7.5" />
+    <link rel="stylesheet" href="form.css?ver=1.7.5" />
+    <link rel="stylesheet" href="modal.css?ver=1.7.5" />
   </head>
   <body>
     <div class="header">
@@ -53,7 +53,7 @@
       <form action="/submit" method="post" class="contact-form">
         <div class="form-group" style="display: none">
           <label for="gubun">서비스 *</label>
-          <input type="text" id="gubun" name="gubun" value="AS 신청" required />
+          <input type="text" id="gubun" name="gubun" value="A/S 신청" required />
         </div>
 
         <div class="form-group">
@@ -148,7 +148,7 @@
         <div class="footer-section">
           <h4>지원</h4>
           <ul>
-            <li><a href="#service">AS 신청</a></li>
+            <li><a href="#service">A/S 신청</a></li>
             <li><a href="/contact.html#contact_us">문의하기</a></li>
             <li>
               <a href="index.html#downloads"> IS 3800 User Guide </a>
@@ -161,7 +161,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="policy-links">
+        <!-- PC용 모달 링크 -->
+        <div class="policy-links" id="policyLinksDesktop">
           <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS_Korea_terms.pdf')">이용 약관</a>
           <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS_Korea_privacy_policy.pdf')">개인정보 보호정책</a>
           <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS_Korea_cookie.pdf')">쿠키 정책</a>
@@ -170,6 +171,18 @@
           >
           <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS_Korea_EULA.pdf')">최종 사용자 사용권 계약</a>
           <a href="#" class="pdf-link" onclick="openModal('/pdf/DEXIS_Korea_patent.pdf')">특허</a>
+        </div>
+
+        <!-- 모바일용 직접 링크 -->
+        <div class="policy-links" id="policyLinksMobile" style="display: none">
+          <a href="/pdf/DEXIS_Korea_terms.pdf" class="pdf-link" target="_blank">이용 약관</a>
+          <a href="/pdf/DEXIS_Korea_privacy_policy.pdf" class="pdf-link" target="_blank">개인정보 보호정책</a>
+          <a href="/pdf/DEXIS_Korea_cookie.pdf" class="pdf-link" target="_blank">쿠키 정책</a>
+          <a href="/pdf/DEXIS_Korea_Compliance_Transparency.pdf" class="pdf-link" target="_blank"
+            >규정 준수 및 투명성</a
+          >
+          <a href="/pdf/DEXIS_Korea_EULA.pdf" class="pdf-link" target="_blank">최종 사용자 사용권 계약</a>
+          <a href="/pdf/DEXIS_Korea_patent.pdf" class="pdf-link" target="_blank">특허</a>
         </div>
         <div class="address">
           경기도 용인시 기흥구 중부대로 184 지식산업센터 518호<br />
