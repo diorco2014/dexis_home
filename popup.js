@@ -14,3 +14,11 @@ closeButton.addEventListener('click', function () {
   }
   popup.style.display = 'none';
 });
+window.addEventListener('load', function () {
+  const popup = document.getElementById('popup');
+  const img = popup.querySelector('img');
+
+  img.onload = function () {
+    popup.style.width = img.naturalWidth + 'px';
+  };
+});

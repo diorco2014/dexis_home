@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 메뉴 클릭시 스무스 하게 스크롤 되게
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
