@@ -10,56 +10,44 @@ const today = new Date().toISOString().slice(0, 10);
 const imagePopupKey = 'popup_hidden_' + today;
 const videoPopupKey = 'video_popup_hidden_' + today;
 
+// ✅ 영상 팝업 표시
+function showVideoPopup() {
+  if (!localStorage.getItem(videoPopupKey)) {
+    videoPopup.style.display = 'block';
+  }
+}
+
+// ✅ 이미지 팝업 표시
 function showImagePopup() {
   if (!localStorage.getItem(imagePopupKey)) {
     popup.style.display = 'block';
-  }
-}
-
-function showVideoPopup() {
-  const videoHidden = localStorage.getItem(videoPopupKey);
-
-  if (!videoHidden) {
-    videoPopup.style.display = 'block';
   } else {
-    // ⚠ 영상이 이미 숨겨져 있는 경우에만 이미지 팝업 띄움
-    showImagePopup();
+    // 이미지가 숨겨졌다면 바로 영상 보여줌
+    showVideoPopup();
   }
 }
 
-// 영상 팝업 닫기
-videoClose.addEventListener('click', function () {
-  if (videoCheckbox.checked) {
-    localStorage.setItem(videoPopupKey, 'true');
-  }
-  videoPopup.style.display = 'none';
-
-  // ✅ 닫은 이후에만 이미지 팝업 보이게
-  setTimeout(() => {
-    showImagePopup();
-  }, 300); // 살짝 지연을 주면 시각적으로 더 자연스럽게 전환됨
-});
-
-// 이미지 팝업 닫기
+// ✅ 이미지 팝업 닫기 → 영상 팝업 열기
 closeButton.addEventListener('click', function () {
   if (hideTodayCheckbox.checked) {
     localStorage.setItem(imagePopupKey, 'true');
   }
   popup.style.display = 'none';
+
+  setTimeout(() => {
+    showVideoPopup();
+  }, 300);
 });
 
-// ✅ 페이지 로드 시: 영상부터 판단
+// ✅ 영상 팝업 닫기
+videoClose.addEventListener('click', function () {
+  if (videoCheckbox.checked) {
+    localStorage.setItem(videoPopupKey, 'true');
+  }
+  videoPopup.style.display = 'none';
+});
+
+// ✅ 페이지 로드 시: 이미지부터 보여주기
 window.addEventListener('load', function () {
-  // ✅ 영상이 숨김 조건이 아니면 이미지 팝업은 여기서 절대 실행되지 않음!
-  showVideoPopup();
+  showImagePopup();
 });
-
-// // 이미지크기에 따라 팝업 크기 조절
-// window.addEventListener('load', function () {
-//   const popup = document.getElementById('popup');
-//   const img = popup.querySelector('img');
-
-//   img.onload = function () {
-//     popup.style.width = img.naturalWidth + 'px';
-//   };
-// });
