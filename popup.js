@@ -1,53 +1,25 @@
-const popup = document.getElementById('popup');
-const hideTodayCheckbox = document.getElementById('hide-today');
-const closeButton = document.getElementById('popup-close');
-
-const videoPopup = document.getElementById('video-popup');
-const videoCheckbox = document.getElementById('video-hide-today');
-const videoClose = document.getElementById('video-popup-close');
-
-const today = new Date().toISOString().slice(0, 10);
-const imagePopupKey = 'popup_hidden_' + today;
-const videoPopupKey = 'video_popup_hidden_' + today;
-
-// ✅ 영상 팝업 표시
-function showVideoPopup() {
-  if (!localStorage.getItem(videoPopupKey)) {
-    videoPopup.style.display = 'block';
-  }
+// 날짜 형식: YYYY-MM-DD
+function getTodayKey() {
+  const today = new Date();
+  return `popupHidden-${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 }
 
-// ✅ 이미지 팝업 표시
-function showImagePopup() {
-  if (!localStorage.getItem(imagePopupKey)) {
-    popup.style.display = 'block';
-  } else {
-    // 이미지가 숨겨졌다면 바로 영상 보여줌
-    showVideoPopup();
-  }
+function shouldShowPopup() {
+  return !localStorage.getItem(getTodayKey());
 }
 
-// ✅ 이미지 팝업 닫기 → 영상 팝업 열기
-closeButton.addEventListener('click', function () {
-  if (hideTodayCheckbox.checked) {
-    localStorage.setItem(imagePopupKey, 'true');
+function closePopup() {
+  const dontShow = document.getElementById('dont-show-today').checked;
+  if (dontShow) {
+    localStorage.setItem(getTodayKey(), 'true');
   }
-  popup.style.display = 'none';
+  document.getElementById('popup').style.display = 'none';
+  document.getElementById('popup-bg').style.display = 'none';
+}
 
-  setTimeout(() => {
-    showVideoPopup();
-  }, 300);
-});
-
-// ✅ 영상 팝업 닫기
-videoClose.addEventListener('click', function () {
-  if (videoCheckbox.checked) {
-    localStorage.setItem(videoPopupKey, 'true');
+window.onload = function () {
+  if (shouldShowPopup()) {
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup-bg').style.display = 'block';
   }
-  videoPopup.style.display = 'none';
-});
-
-// ✅ 페이지 로드 시: 이미지부터 보여주기
-window.addEventListener('load', function () {
-  showImagePopup();
-});
+};

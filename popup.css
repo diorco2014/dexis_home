@@ -3,183 +3,65 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  border: 1px solid #ccc;
-  z-index: 9999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  padding: 0;
-  display: inline-block; /* 💡 팝업이 내용 크기에 맞게 줄어듦 */
-  text-align: center;
-  max-width: 100vw;
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-#popup a {
-  display: block;
-  width: 100%;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh; /* 화면 높이 기준 제한 */
+  overflow-y: auto; /* 내부 스크롤 활성화 */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
 }
 
 #popup img {
-  display: block;
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: 90vw;
-  max-height: calc(90vh - 50px); /* 푸터를 위한 공간 */
-  margin: 0 auto;
+  display: block;
 }
 
-#popup-footer {
-  background: #f9f9f9;
-  padding: 10px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  #popup-footer {
-    flex-shrink: 0;
-    font-size: 10px;
-    padding: 5px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f9f9f9;
-  }
-  #popup-footer label {
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #popup-footer button {
-    font-size: 10px;
-  }
-  #popup img {
-    margin: 0 auto;
-  }
-}
-
-@media (max-height: 508px) {
-  #popup {
-    display: flex;
-    flex-direction: column;
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-  }
-
-  #popup a {
-    overflow-y: auto; /* 이미지에 스크롤 허용 */
-    display: flex;
-    justify-content: center;
-  }
-
-  #popup img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: calc(90vh - 40px); /* 푸터 영역을 뺀 이미지 최대 높이 */
-    object-fit: contain;
-  }
-
-  #popup-footer {
-    flex-shrink: 0;
-    font-size: 10px;
-    padding: 5px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f9f9f9;
-  }
-
-  #popup-footer label,
-  #popup-footer button {
-    font-size: 10px;
-  }
-}
-
-/* 비디오 팝업 */
-#video-popup {
-  display: flex;
-  flex-direction: column; /* ✅ 세로 정렬 */
-  justify-content: space-between;
-  align-items: stretch;
-  width: 45vw;
-  max-width: 1200px;
-  height: 60vh;
-  max-height: 800px;
-  background: white;
-  border: 1px solid #ccc;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 10000;
-  transition: all 0.5s ease;
-  text-align: center;
-  overflow: hidden; /* ✅ 불필요한 오버플로 제거 */
-  border-radius: 10px;
-}
-.video-wrapper {
-  flex: 1 1 auto;
+#popup iframe {
   width: 100%;
-  height: calc(100% - 45px); /* footer 제외한 높이 */
-  overflow: hidden;
-  display: flex;
-}
-
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
+  height: 56.25vw; /* 16:9 ratio based on viewport width */
+  max-height: 280px;
   border: none;
 }
 
-#video-popup-footer {
-  background: #f9f9f9;
-  padding: 10px;
-  font-size: 14px;
+#popup-footer {
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-@media (max-width: 1024px) {
-  #video-popup {
-    width: 65vw;
-    height: 70vh;
-  }
+  flex-wrap: wrap;
+  font-size: 14px;
 }
 
-@media (max-width: 768px) {
-  #video-popup {
-    width: 95vw;
-    height: 60vh;
-    max-width: 100%;
-    max-height: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .video-wrapper {
-    height: calc(60vh - 40px); /* footer 제외한 높이 */
-  }
-
-  #video-popup-footer {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-
-  #video-popup-footer label,
-  #video-popup-footer button {
-    font-size: 12px;
-  }
+#popup-footer label {
+  flex: 1;
+  min-width: 150px;
 }
 
-#popup,
-#video-popup {
-  display: none; /* ✅ 기본은 숨김 */
+#popup-footer button {
+  padding: 8px 14px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  #popup iframe {
+    height: 50vw;
+  }
+
+  #popup-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #popup-footer button {
+    align-self: flex-end;
+  }
 }

@@ -585,27 +585,18 @@
 
     <!-- 마케팅용 팝업 -->
     <div id="popup">
-      <a href="/contact.html#contact_us">
-        <img src="/images/popup/popup_250731_2.jpg" alt="팝업 이미지" />
-      </a>
-      <div id="popup-footer">
-        <label><input type="checkbox" id="hide-today" /> 오늘 하루 보지 않기</label>
-        <button id="popup-close">닫기</button>
-      </div>
-    </div>
+      <img src="/images/popup/popup_250801.jpg" alt="팝업 이미지" />
+      <!-- 여기에 이미지 경로 삽입 -->
+      <iframe
+        src="https://www.youtube.com/embed/upeOrga0gys?autoplay=1&mute=1&playsinline=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <!-- 유튜브 영상 ID 교체 -->
 
-    <!-- 영상 팝업 -->
-    <div id="video-popup">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/upeOrga0gys?autoplay=1&mute=1&playsinline=1"
-          title="YouTube video"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div id="video-popup-footer">
-        <label><input type="checkbox" id="video-hide-today" /> 오늘 하루 보지 않기</label>
-        <button id="video-popup-close">닫기</button>
+      <div id="popup-footer">
+        <label><input type="checkbox" id="dont-show-today" /> 오늘 하루 보지 않기</label>
+        <button onclick="closePopup()">닫기</button>
       </div>
     </div>
 
