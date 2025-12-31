@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="dexis korea - is 3800" />
+		<meta property="og:description" content="dexis korea - is 3800" />
+		<meta property="og:url" content="https://dexiskorea.com/contact.html" />
+		<meta
+			property="og:image"
+			content="https://dexiskorea.com/images/dexiskorea.jpg"
+		/>
+		<script src="/component/common-header-component.js"></script>
+		<script>
+			insertCommonHead({
+				title: "DEXIS Korea - 문의하기",
+				extraCss: ["form.css?ver=1.7.6"],
+			});
+		</script>
+	</head>
+	<body>
+		<app-header active="contact"></app-header>
+		<app-section-block
+			title="스캐너 데모 및 구매 상담"
+			subtitle="DEXIS 및 (구) Carestream 스캐너에 대한 문의는 저희에게 연락 주세요"
+		></app-section-block>
+
+		<section id="form-mail">
+			<form action="/submit" method="post" class="contact-form">
+				<div class="form-group" style="display: none">
+					<label for="gubun">문의하기 *</label>
+					<input
+						type="text"
+						id="gubun"
+						name="gubun"
+						value="문의하기"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="hospitalname">병원명 *</label>
+					<input type="text" id="hospitalname" name="hospitalname" required />
+				</div>
+
+				<div class="form-group">
+					<label for="region">지역 *</label>
+					<select id="region" name="region" required>
+						<option value="" disabled selected hidden>
+							지역을 선택해주세요
+						</option>
+						<option value="서울특별시">서울특별시</option>
+						<option value="부산광역시">부산광역시</option>
+						<option value="대구광역시">대구광역시</option>
+						<option value="인천광역시">인천광역시</option>
+						<option value="광주광역시">광주광역시</option>
+						<option value="대전광역시">대전광역시</option>
+						<option value="울산광역시">울산광역시</option>
+						<option value="세종특별자치시">세종특별자치시</option>
+						<option value="경기도">경기도</option>
+						<option value="강원특별자치도">강원특별자치도</option>
+						<option value="충청북도">충청북도</option>
+						<option value="충청남도">충청남도</option>
+						<option value="전북특별자치도">전북특별자치도</option>
+						<option value="전라남도">전라남도</option>
+						<option value="경상북도">경상북도</option>
+						<option value="경상남도">경상남도</option>
+						<option value="제주특별자치도">제주특별자치도</option>
+					</select>
+				</div>
+
+				<div class="form-group" style="display: none">
+					<label for="address">주소</label>
+					<input type="text" id="address" name="address" />
+				</div>
+
+				<div class="form-group">
+					<label for="email">이메일 *</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+
+				<div class="form-group">
+					<label for="phone">휴대폰 *</label>
+					<input type="tel" id="phone" name="phone" required />
+				</div>
+
+				<!-- 통화 가능일 -->
+				<div class="form-group">
+					<label for="callDate">통화 가능일 *</label>
+					<input type="date" id="callDate" name="callDate" required />
+				</div>
+
+				<!-- 통화 가능 시간 -->
+				<div class="form-group">
+					<label for="startTime">통화 가능 시간 *</label>
+					<div class="time-select-wrapper">
+						<select id="startTime" name="startTime" required>
+							<option value="" disabled selected hidden>시작</option>
+							<option value="09:00">09:00</option>
+							<option value="09:30">09:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="13:00">13:00</option>
+							<option value="13:30">13:30</option>
+							<option value="14:00">14:00</option>
+							<option value="14:30">14:30</option>
+							<option value="15:00">15:00</option>
+							<option value="15:30">15:30</option>
+							<option value="16:00">16:00</option>
+							<option value="16:30">16:30</option>
+							<option value="17:00">17:00</option>
+							<option value="17:30">17:30</option>
+						</select>
+
+						<select id="endTime" name="endTime" required>
+							<option value="" disabled selected hidden>종료</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="referrer">추천인</label>
+					<input
+						type="text"
+						id="referrer"
+						name="referrer"
+						placeholder="추천인을 입력해주세요"
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="message">문의사항 *</label>
+					<textarea id="message" name="message" required></textarea>
+				</div>
+				<!-- 
+        <div class="form-group checkbox-group">
+          <p><strong>개인정보 보호정책 및 이메일 수신 동의</strong></p>
+
+          <label class="checkbox-inline">
+            <input type="checkbox" required />
+            본인은 귀하의 <a href="#">개인정보 보호정책</a>을 읽었으며 이에 동의합니다 . *
+          </label>
+
+          <label class="checkbox-inline">
+            <input type="checkbox" />
+            DEXIS에서 가끔씩 자사 강좌, 교육, 이벤트 및 제품에 대한 마케팅 정보를 이메일로 발송하는 것에 동의합니다.
+            <br />
+            언제든지 수신을 거부할 수 있습니다.
+          </label>
+        </div> -->
+
+				<div class="form-submit">
+					<button type="submit">문의하기</button>
+				</div>
+			</form>
+		</section>
+		<app-working-hours></app-working-hours>
+		<app-footer></app-footer>
+
+		<script src="/component/header-component.js?ver=1.2"></script>
+		<script src="/component/section-component.js"></script>
+		<script src="/component/workingHours-component.js?ver=1.0"></script>
+		<script src="/component/footer-component.js"></script>
+		<script src="script.js?ver=2"></script>
+		<script src="modal.js?ver=1.1"></script>
+		<script src="form.js?ver=1.1"></script>
+	</body>
+</html>

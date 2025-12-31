@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="dexis korea - is 3800" />
+		<meta property="og:description" content="dexis korea - is 3800" />
+		<meta
+			property="og:url"
+			content="https://dexiskorea.com/utilizations.html"
+		/>
+		<meta
+			property="og:image"
+			content="https://dexiskorea.com/images/dexiskorea.jpg"
+		/>
+		<script src="/component/common-header-component.js"></script>
+		<script>
+			insertCommonHead({
+				title: "DEXIS Korea - 활용방",
+				extraCss: ["video.css?ver=1.0.0"],
+			});
+		</script>
+	</head>
+	<body>
+		<app-header active="util"></app-header>
+		<app-section-block
+			title="활용방"
+			subtitle="동영상 자료와 QnA를 통해 다양한 활용법을 확인하세요"
+		></app-section-block>
+
+		<!-- 유튜브 동영상 목록 -->
+		<div class="video-section">
+			<div class="video-container">
+				<app-tabs
+					active="videos"
+					videos-href="utilizations.html"
+					qna-href="board.html"
+				></app-tabs>
+				<div id="videoGrid" class="video-grid"></div>
+			</div>
+		</div>
+		<!-- 모달 (YouTube 재생용) -->
+		<div class="video-modal" id="videoModal">
+			<div class="video-modal-content">
+				<iframe
+					id="videoPlayer"
+					src=""
+					frameborder="0"
+					allowfullscreen
+				></iframe>
+			</div>
+		</div>
+		<app-working-hours></app-working-hours>
+		<app-footer></app-footer>
+
+		<script src="/component/header-component.js?ver=1.2"></script>
+		<script src="/component/section-component.js"></script>
+		<script src="/component/tabs-component.js"></script>
+		<script src="/component/workingHours-component.js?ver=1.0"></script>
+		<script src="/component/footer-component.js"></script>
+		<script src="video.js?ver=1.1"></script>
+		<script src="script.js?ver=2"></script>
+		<script src="modal.js"></script>
+	</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="dexis korea - is 3800" />
+		<meta property="og:description" content="dexis korea - is 3800" />
+		<meta property="og:url" content="https://dexiskorea.com/board.html" />
+		<meta
+			property="og:image"
+			content="https://dexiskorea.com/images/dexiskorea.jpg"
+		/>
+		<script src="/component/common-header-component.js"></script>
+		<script>
+			insertCommonHead({
+				title: "DEXIS Korea - QnA",
+				extraCss: ["board.css?ver=1.0.7"],
+			});
+		</script>
+		<script src="captcha.js"></script>
+	</head>
+	<body>
+		<app-header active="utils"></app-header>
+		<app-section-block
+			title="활용방"
+			subtitle="동영상 자료와 QnA를 통해 다양한 활용법을 확인하세요"
+		></app-section-block>
+		<!-- QnA Board -->
+		<div class="qb-section">
+			<div id="qna-board" class="qb-container">
+				<app-tabs
+					active="board"
+					videos-href="utilizations.html"
+					qna-href="board.html"
+				></app-tabs>
+				<header class="qb-header">
+					<div class="qb-toolbar">
+						<div
+							id="qbAdminStatus"
+							style="margin-right: auto; font-weight: 600"
+						></div>
+						<button class="qb-btn qb-primary" id="qbBtnWrite">작성하기</button>
+					</div>
+				</header>
+
+				<main>
+					<div id="qbPostList" class="qb-list"></div>
+					<div id="qbPagination" class="qb-pagination"></div>
+				</main>
+
+				<!-- 글 작성/수정 모달 -->
+				<div class="qb-modal" id="qbPostModal" aria-hidden="true">
+					<div
+						class="qb-dialog"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="qbPostTitle"
+					>
+						<button class="qb-close" data-qb-close>✕</button>
+						<h3 id="qbPostTitle">게시글 작성</h3>
+
+						<form id="qbPostForm" class="qb-form">
+							<div class="qb-field">
+								<label for="qbWriterName">이름 <span>*</span></label>
+								<input
+									id="qbWriterName"
+									placeholder="작성자 이름을 입력하세요"
+								/>
+							</div>
+
+							<div class="qb-field">
+								<label for="qbTitle">제목 <span>*</span></label>
+								<input id="qbTitle" placeholder="제목을 입력하세요" />
+							</div>
+							<div class="qb-field">
+								<label for="qbContent">내용 <span>*</span></label>
+								<textarea
+									id="qbContent"
+									rows="8"
+									placeholder="내용을 입력하세요"
+								></textarea>
+							</div>
+							<div class="qb-field" id="qbWriterPasswordRow">
+								<label for="qbWriterPassword">비밀번호 <span>*</span></label>
+								<input
+									id="qbWriterPassword"
+									type="password"
+									placeholder="비밀번호를 입력하세요"
+								/>
+							</div>
+							<div class="qb-field">
+								<label>자동입력방지문자 <span>*</span></label>
+								<div class="qb-captcha">
+									<canvas
+										id="postCaptcha"
+										width="160"
+										height="40"
+										style="width: 160px; height: 40px"
+									></canvas>
+									<input
+										id="postCaptchaInput"
+										placeholder="문자를 입력하세요"
+									/>
+									<button
+										id="postCaptchaRefresh"
+										class="qb-btn qb-sm"
+										type="button"
+									>
+										새로고침
+									</button>
+								</div>
+							</div>
+							<label class="qb-check">
+								<input type="checkbox" id="qbPrivate" />
+								<span>비밀 글로 등록</span>
+							</label>
+
+							<div class="qb-actions qb-right">
+								<button
+									type="submit"
+									class="qb-btn qb-primary"
+									id="qbPostSubmit"
+								>
+									저장
+								</button>
+								<button type="button" class="qb-btn" data-qb-close>취소</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- 상세보기 모달 -->
+				<div class="qb-modal" id="qbDetailModal" aria-hidden="true">
+					<div
+						class="qb-dialog qb-dialog--lg"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="qbDetailTitle"
+					>
+						<button class="qb-close" data-qb-close>✕</button>
+
+						<div id="qbDetailHeader" class="qb-detail-header"></div>
+						<hr class="qb-sep" />
+						<div id="qbDetailContent" class="qb-detail-content"></div>
+						<hr class="qb-sep" />
+
+						<section class="qb-comments">
+							<h4>댓글 <span id="qbCommentCount">0</span>개</h4>
+							<div id="qbCommentList" class="qb-comment-list"></div>
+
+							<div id="qbCommentSigned" class="qb-hidden">
+								<form id="qbCommentForm" class="qb-form">
+									<div class="qb-field">
+										<label for="qbCommentText">댓글</label>
+										<textarea
+											id="qbCommentText"
+											rows="4"
+											placeholder="댓글을 입력하세요"
+										></textarea>
+									</div>
+									<div class="qb-actions qb-right">
+										<button
+											type="button"
+											class="qb-btn qb-hidden"
+											id="qbCxlComment"
+										>
+											취소
+										</button>
+										<button
+											type="submit"
+											class="qb-btn qb-primary"
+											id="qbSubmitComment"
+										>
+											댓글 작성
+										</button>
+										<button type="button" class="qb-btn" data-qb-close>
+											닫기
+										</button>
+									</div>
+								</form>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- 관리자 로그인 모달 -->
+				<div class="qb-modal" id="qbAdminModal" aria-hidden="true">
+					<div
+						class="qb-dialog"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="qbAdminTitle"
+					>
+						<button class="qb-close" data-qb-close>✕</button>
+						<h3 id="qbAdminTitle">관리자 로그인</h3>
+						<form id="qbAdminForm" class="qb-form">
+							<div class="qb-field">
+								<label for="qbAdminId">아이디</label>
+								<input
+									id="qbAdminId"
+									name="qbAdminId"
+									placeholder="관리자 아이디"
+									autocomplete="off"
+								/>
+							</div>
+							<div class="qb-field">
+								<label for="qbAdminPw">비밀번호</label>
+								<input
+									id="qbAdminPw"
+									name="qbAdminPw"
+									type="password"
+									placeholder="관리자 비밀번호"
+								/>
+							</div>
+							<div class="qb-actions qb-right">
+								<button class="qb-btn qb-primary" type="submit">로그인</button>
+								<button class="qb-btn" type="button" data-qb-close>취소</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- 게시글 열람 비밀번호 확인 모달 -->
+				<div class="qb-modal" id="qbPasswordModal" aria-hidden="true">
+					<div
+						class="qb-dialog"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="qbPasswordTitle"
+					>
+						<button class="qb-close" data-qb-close>✕</button>
+						<h3 id="qbPasswordTitle">게시글 비밀번호 확인</h3>
+						<p class="qb-help">
+							게시글 작성 시 입력한 비밀번호를 입력해주세요.
+						</p>
+						<form id="qbPasswordForm" class="qb-form">
+							<div class="qb-field">
+								<input
+									id="qbPasswordInput"
+									name="qbPasswordInput"
+									type="password"
+									placeholder="게시글 비밀번호"
+								/>
+							</div>
+							<div class="qb-actions qb-right">
+								<button class="qb-btn qb-primary" type="submit">확인</button>
+								<button class="qb-btn" type="button" data-qb-close>취소</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div
+					id="qbToast"
+					class="qb-toast"
+					role="status"
+					aria-live="polite"
+				></div>
+			</div>
+		</div>
+		<app-working-hours></app-working-hours>
+		<app-footer></app-footer>
+
+		<script src="/component/header-component.js?ver=1.2"></script>
+		<script src="/component/section-component.js"></script>
+		<script src="/component/tabs-component.js"></script>
+		<script src="/component/workingHours-component.js?ver=1.0"></script>
+		<script src="/component/footer-component.js"></script>
+		<script type="module" src="board.js"></script>
+		<script src="script.js?ver=2"></script>
+		<script src="modal.js"></script>
+	</body>
+</html>

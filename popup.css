@@ -1,0 +1,84 @@
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh; /* 화면 높이 기준 제한 */
+  overflow-y: auto; /* 내부 스크롤 활성화 */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
+}
+
+#popup img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#popup iframe {
+  width: 100%;
+  height: 56.25vw; /* 16:9 ratio based on viewport width */
+  max-height: 280px;
+  border: none;
+}
+
+#popup-footer {
+  margin-top: -7px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+#popup-footer label {
+  flex: 1;
+  min-width: 150px;
+}
+
+#popup-footer button {
+  padding: 8px 14px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  #popup iframe {
+    height: 50vw;
+  }
+
+  #popup-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    padding: 15px;
+    font-size: 14px;
+    gap: 10px; /* 요소 사이 간격 */
+  }
+
+  #popup-footer label {
+    flex: 1 1 auto;
+    min-width: 150px;
+    white-space: nowrap;
+  }
+
+  #popup-footer button {
+    padding: 8px 14px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}

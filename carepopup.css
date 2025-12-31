@@ -1,0 +1,103 @@
+/* 오버레이 */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+/* 팝업 박스 */
+.carepopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 760px);
+  max-height: 84vh;
+  overflow: auto; /* 스크롤 */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* 닫기 X */
+.carepopup-close {
+  position: sticky; /* 스크롤해도 우측 상단에 고정 */
+  top: 0;
+  margin-left: auto;
+  display: block;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  padding: 12px 14px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* 본문 */
+.carepopup-body {
+  padding: 0 24px 28px 24px;
+}
+
+/* 섹션 레이아웃 */
+.care-section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 22px;
+  align-items: start;
+  padding: 8px 0 28px;
+  border-bottom: 1px solid #eee;
+}
+.care-section:last-child {
+  border-bottom: 0;
+}
+
+/* 썸네일 */
+.thumb {
+  position: relative;
+  margin: 0;
+}
+.thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* 좌측 하단 캡션 배지 */
+.badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  color: #fff;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px 12px;
+  border-radius: 8px;
+  backdrop-filter: saturate(140%) blur(2px);
+}
+.badge .num {
+  margin-right: 6px;
+  opacity: 0.9;
+}
+
+/* 글머리표 목록 */
+.bullet {
+  margin: 0;
+  padding-left: 22px;
+  list-style: disc;
+  line-height: 1.9;
+  font-size: 16px;
+  color: #111;
+}
+
+/* 반응형(좁은 화면) */
+@media (max-width: 640px) {
+  .care-section {
+    grid-template-columns: 1fr;
+  }
+  .thumb img {
+    height: 180px;
+  }
+}
