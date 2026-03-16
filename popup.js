@@ -19,6 +19,6 @@ function closePopup() {
 window.onload = function () {
   if (shouldShowPopup()) {
     // 예원: 팝업 안보이게 처리 (2026-03-12) show : "block", hide: "none"
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("popup").style.display = "block";
   }
 };
