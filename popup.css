@@ -1,10 +1,16 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 #popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
   width: 90%;
-  max-width: 400px;
+  max-width: 420px;
   max-height: 90vh; /* 화면 높이 기준 제한 */
   overflow-y: auto; /* 내부 스크롤 활성화 */
   background: #fff;
@@ -27,27 +33,59 @@
   border: none;
 }
 
+#popup .popup-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: auto;
+  font-size: 25px;
+  font-weight: 600;
+  width: 200px;
+  height: 50px;
+  border-radius: 9999px;
+  background-color: #ff5f30;
+  color: #fff;
+}
+
 #popup-footer {
-  margin-top: -7px;
-  padding: 5px 15px;
+  padding-top: 20px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 14px;
+  border-top: 1px solid #d2d2d2;
 }
 
 #popup-footer label {
   flex: 1;
-  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#popup-footer label input[type="checkbox"] {
+  width: 20px;
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+  border: 1px solid #d2d2d2;
+  margin: 0;
+}
+
+#popup-footer label .popup-label-text {
+  font-size: 18px;
+  line-height: 1.1;
 }
 
 #popup-footer button {
-  padding: 8px 14px;
-  background: #333;
+  width: 100px;
+  height: 50px;
+  background: #3c3c3c;
+  font-size: 18px;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 9999px;
   cursor: pointer;
 }
 
