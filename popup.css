@@ -3,16 +3,40 @@ a {
   color: inherit;
 }
 
-#popup {
+.popup-container {
+  z-index: 9999;
   position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+
+.popup-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+#popup,
+#popup2 {
+  /* position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  display: block;
   padding: 20px;
   width: 90%;
   max-width: 420px;
-  max-height: 90vh; /* 화면 높이 기준 제한 */
-  overflow-y: auto; /* 내부 스크롤 활성화 */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -20,7 +44,8 @@ a {
   display: none;
 }
 
-#popup img {
+#popup img,
+#popup2 img {
   width: 100%;
   height: auto;
   display: block;
@@ -33,7 +58,8 @@ a {
   border: none;
 }
 
-#popup .popup-cta {
+#popup .popup-cta,
+#popup2 .popup-cta {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +74,7 @@ a {
   color: #fff;
 }
 
-#popup-footer {
+.popup-footer {
   padding-top: 20px;
   margin-top: 20px;
   display: flex;
@@ -58,14 +84,14 @@ a {
   border-top: 1px solid #d2d2d2;
 }
 
-#popup-footer label {
+.popup-footer label {
   flex: 1;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-#popup-footer label input[type="checkbox"] {
+.popup-footer label input[type="checkbox"] {
   width: 20px;
   aspect-ratio: 1 / 1;
   border-radius: 3px;
@@ -73,12 +99,12 @@ a {
   margin: 0;
 }
 
-#popup-footer label .popup-label-text {
+.popup-footer label .popup-label-text {
   font-size: 18px;
   line-height: 1.1;
 }
 
-#popup-footer button {
+.popup-footer button {
   width: 100px;
   height: 50px;
   background: #3c3c3c;
@@ -89,12 +115,20 @@ a {
   cursor: pointer;
 }
 
+@media (max-width: 1400px) {
+  .popup-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 480px) {
   #popup iframe {
     height: 50vw;
   }
 
-  #popup-footer {
+  .popup-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,13 +138,13 @@ a {
     gap: 10px; /* 요소 사이 간격 */
   }
 
-  #popup-footer label {
+  /* .popup-footer label {
     flex: 1 1 auto;
     min-width: 150px;
     white-space: nowrap;
   }
 
-  #popup-footer button {
+  .popup-footer button {
     padding: 8px 14px;
     background: #333;
     color: #fff;
@@ -118,5 +152,5 @@ a {
     border-radius: 5px;
     cursor: pointer;
     flex-shrink: 0;
-  }
+  } */
 }
