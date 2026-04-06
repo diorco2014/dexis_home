@@ -1,13 +1,16 @@
 class AppHeader extends HTMLElement {
-	static get observedAttributes() {
-		return ["active"];
-	}
+  static get observedAttributes() {
+    return ["active"];
+  }
 
-	constructor() {
-		super();
-		this.attachShadow({ mode: "open" });
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
 
-		this.shadowRoot.innerHTML = `
+    const isIndex =
+      location.pathname === "/" || location.pathname.endsWith("index.html");
+
+    this.shadowRoot.innerHTML = `
     <style>
       :host {
         display: block;
@@ -183,12 +186,12 @@ class AppHeader extends HTMLElement {
           <button class="hamburger">&#9776;</button>
           <nav class="main-menu nav-menu" id="mainMenu">
             <ul>
-              <li data-key="overview"><a href="index.html#overview">개요</a></li>
-              <li data-key="features"><a href="index.html#features">특징</a></li>
-              <li data-key="specs"><a href="index.html#specifications">사양</a></li>
-              <li data-key="downloads"><a href="index.html#downloads">다운로드</a></li>
+              <li data-key="overview"><a href="${isIndex ? "#overview" : "index.html#overview"}">개요</a></li>
+              <li data-key="features"><a href="${isIndex ? "#features" : "index.html#features"}">특징</a></li>
+              <li data-key="specs"><a href="${isIndex ? "#specifications" : "index.html#specifications"}">사양</a></li>
+              <li data-key="downloads"><a href="${isIndex ? "#downloads" : "index.html#downloads"}">다운로드</a></li>
               <li data-key="contact"><a href="contact.html">문의하기</a></li>
-              <li data-key="premiumcare"><a href="index.html#premiumcare">프리미엄케어</a></li>
+              <li data-key="premiumcare"><a href="${isIndex ? "#premiumcare" : "index.html#premiumcare"}">프리미엄케어</a></li>
               <li data-key="care"><a href="care.html">케어 요청</a></li>
               <li data-key="util"><a href="utilizations.html">활용방</a></li>
             </ul>
@@ -197,135 +200,135 @@ class AppHeader extends HTMLElement {
       </div>
     </div>
     `;
-	}
+  }
 
-	connectedCallback() {
-		this._setActive(); // 기본 active 처리
-		this._initHamburger();
-		this._initScrollFixed();
-		this._initSmoothScroll();
+  connectedCallback() {
+    this._setActive(); // 기본 active 처리
+    this._initHamburger();
+    this._initScrollFixed();
+    this._initSmoothScroll();
 
-		// 초기 로딩 시 hash 반영 ⭐
-		if (window.location.hash) {
-			this._setActiveByHash();
-		}
+    // 초기 로딩 시 hash 반영 ⭐
+    if (window.location.hash) {
+      this._setActiveByHash();
+    }
 
-		// hash 변경 시 동작
-		window.addEventListener("hashchange", () => {
-			this._setActiveByHash();
-		});
-	}
+    // hash 변경 시 동작
+    window.addEventListener("hashchange", () => {
+      this._setActiveByHash();
+    });
+  }
 
-	attributeChangedCallback() {
-		this._setActive();
-	}
+  attributeChangedCallback() {
+    this._setActive();
+  }
 
-	/** 현재 페이지에 따라 active 메뉴 자동 적용 */
-	_setActive() {
-		const activeKey = this.getAttribute("active");
-		const items = this.shadowRoot.querySelectorAll(".nav-menu li");
+  /** 현재 페이지에 따라 active 메뉴 자동 적용 */
+  _setActive() {
+    const activeKey = this.getAttribute("active");
+    const items = this.shadowRoot.querySelectorAll(".nav-menu li");
 
-		items.forEach((li) => li.classList.remove("is-active"));
+    items.forEach((li) => li.classList.remove("is-active"));
 
-		// 1) attribute 기반
-		if (activeKey) {
-			const target = this.shadowRoot.querySelector(
-				`li[data-key="${activeKey}"]`
-			);
-			if (target) target.classList.add("is-active");
-		}
+    // 1) attribute 기반
+    if (activeKey) {
+      const target = this.shadowRoot.querySelector(
+        `li[data-key="${activeKey}"]`,
+      );
+      if (target) target.classList.add("is-active");
+    }
 
-		// 2) URL 기반 자동 판별
-		const path = location.pathname.toLowerCase();
+    // 2) URL 기반 자동 판별
+    const path = location.pathname.toLowerCase();
 
-		// ⭐ 현재 값과 같으면 재설정 금지 (무한루프 방지)
-		const safeSet = (key) => {
-			if (this.getAttribute("active") !== key) {
-				this.setAttribute("active", key);
-			}
-		};
+    // ⭐ 현재 값과 같으면 재설정 금지 (무한루프 방지)
+    const safeSet = (key) => {
+      if (this.getAttribute("active") !== key) {
+        this.setAttribute("active", key);
+      }
+    };
 
-		if (path.includes("utilizations")) safeSet("util");
-		if (path.includes("board")) safeSet("util");
-		if (path.includes("care")) safeSet("care");
-		if (path.includes("contact")) safeSet("contact");
-	}
+    if (path.includes("utilizations")) safeSet("util");
+    if (path.includes("board")) safeSet("util");
+    if (path.includes("care")) safeSet("care");
+    if (path.includes("contact")) safeSet("contact");
+  }
 
-	_setActiveByHash() {
-		const hash = window.location.hash.replace("#", "");
-		if (!hash) return;
+  _setActiveByHash() {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
 
-		const items = this.shadowRoot.querySelectorAll(".nav-menu li");
+    const items = this.shadowRoot.querySelectorAll(".nav-menu li");
 
-		items.forEach((li) => li.classList.remove("is-active"));
+    items.forEach((li) => li.classList.remove("is-active"));
 
-		// hash → data-key 매핑
-		const map = {
-			overview: "overview",
-			features: "features",
-			specifications: "specs",
-			downloads: "downloads",
-			premiumcare: "premiumcare",
-		};
+    // hash → data-key 매핑
+    const map = {
+      overview: "overview",
+      features: "features",
+      specifications: "specs",
+      downloads: "downloads",
+      premiumcare: "premiumcare",
+    };
 
-		const key = map[hash];
-		if (!key) return;
+    const key = map[hash];
+    if (!key) return;
 
-		const target = this.shadowRoot.querySelector(`li[data-key="${key}"]`);
-		if (target) target.classList.add("is-active");
-	}
+    const target = this.shadowRoot.querySelector(`li[data-key="${key}"]`);
+    if (target) target.classList.add("is-active");
+  }
 
-	_initSmoothScroll() {
-		const links = this.shadowRoot.querySelectorAll('.nav-menu a[href^="#"]');
+  _initSmoothScroll() {
+    const links = this.shadowRoot.querySelectorAll('.nav-menu a[href^="#"]');
 
-		links.forEach((anchor) => {
-			anchor.addEventListener("click", (e) => {
-				const hash = anchor.getAttribute("href");
-				const target = document.querySelector(hash);
+    links.forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        const hash = anchor.getAttribute("href");
+        const target = document.querySelector(hash);
 
-				if (target) {
-					e.preventDefault();
-					target.scrollIntoView({ behavior: "smooth" });
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
 
-					// ⭐ 클릭 즉시 active 업데이트
-					this._setActiveByHash();
-					history.pushState(null, "", hash);
-				}
-			});
-		});
-	}
+          // ⭐ 클릭 즉시 active 업데이트
+          this._setActiveByHash();
+          history.pushState(null, "", hash);
+        }
+      });
+    });
+  }
 
-	/** 모바일 햄버거 기능 */
-	_initHamburger() {
-		const hamburger = this.shadowRoot.querySelector(".hamburger");
-		const menu = this.shadowRoot.querySelector("#mainMenu");
+  /** 모바일 햄버거 기능 */
+  _initHamburger() {
+    const hamburger = this.shadowRoot.querySelector(".hamburger");
+    const menu = this.shadowRoot.querySelector("#mainMenu");
 
-		hamburger.addEventListener("click", (e) => {
-			e.stopPropagation();
-			menu.classList.toggle("open");
-		});
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("open");
+    });
 
-		// 메뉴 안의 링크 클릭 시 닫기 (⭐ hash 이동 포함)
-		menu.querySelectorAll("a").forEach((a) => {
-			a.addEventListener("click", () => {
-				menu.classList.remove("open");
-			});
-		});
+    // 메뉴 안의 링크 클릭 시 닫기 (⭐ hash 이동 포함)
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        menu.classList.remove("open");
+      });
+    });
 
-		// 메뉴 바깥 클릭하면 닫히기
-		document.addEventListener("click", (e) => {
-			if (!this.contains(e.target)) menu.classList.remove("open");
-		});
-	}
+    // 메뉴 바깥 클릭하면 닫히기
+    document.addEventListener("click", (e) => {
+      if (!this.contains(e.target)) menu.classList.remove("open");
+    });
+  }
 
-	/** 스크롤 시 상단 고정 */
-	_initScrollFixed() {
-		const nav = this.shadowRoot.querySelector(".header-nav");
-		window.addEventListener("scroll", () => {
-			if (window.scrollY > 100) nav.classList.add("fixed");
-			else nav.classList.remove("fixed");
-		});
-	}
+  /** 스크롤 시 상단 고정 */
+  _initScrollFixed() {
+    const nav = this.shadowRoot.querySelector(".header-nav");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) nav.classList.add("fixed");
+      else nav.classList.remove("fixed");
+    });
+  }
 }
 
 customElements.define("app-header", AppHeader);

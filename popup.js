@@ -21,7 +21,7 @@ function updateContainerVisibility() {
   const p1Hidden = p1.style.display === "none" || p1.style.display === "";
   const p2Hidden = p2.style.display === "none" || p2.style.display === "";
 
-  scroll.style.display = (p1Hidden && p2Hidden) ? "none" : "";
+  scroll.style.display = p1Hidden && p2Hidden ? "none" : "";
 }
 
 function closePopup() {
@@ -43,6 +43,12 @@ function closePopup2() {
 }
 
 window.onload = function () {
+  updateContainerVisibility();
+
+  const isIndex = location.pathname === "/";
+  console.log(isIndex);
+  if (!isIndex) return;
+
   if (shouldShowPopup()) {
     // 예원: 팝업 안보이게 처리 (2026-03-12) show : "block", hide: "none"
     document.getElementById("popup").style.display = "block";

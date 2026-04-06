@@ -1,9 +1,14 @@
 class AppFooter extends HTMLElement {
-	constructor() {
-		super();
-		this.attachShadow({ mode: "open" });
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
 
-		this.shadowRoot.innerHTML = `
+    // index.html에서 팝업 재등장을 막기 위한 코드. 현재 index라면 href에 /index.html 제외
+    const isIndex =
+      location.pathname === "/" || location.pathname.endsWith("index.html");
+    const downloadHref = isIndex ? "#downloads" : "/index.html#downloads";
+
+    this.shadowRoot.innerHTML = `
       <style>
         footer {
           font-size: 14px;
@@ -126,7 +131,7 @@ class AppFooter extends HTMLElement {
             <ul>
               <li><a href="/service.html">A/S 신청</a></li>
               <li><a href="/contact.html">문의하기</a></li>
-              <li><a href="/index.html#downloads">IS 3800 User Guide</a></li>
+              <li><a href="${downloadHref}">IS 3800 User Guide</a></li>
               <li><a href="https://www.youtube.com/@dexiskorea" target="_blank">유튜브</a></li>
             </ul>
           </div>
@@ -148,20 +153,20 @@ class AppFooter extends HTMLElement {
         </div>
       </footer>
     `;
-	}
+  }
 
-	connectedCallback() {
-		this._setupPolicyLinks();
-	}
+  connectedCallback() {
+    this._setupPolicyLinks();
+  }
 
-	_setupPolicyLinks() {
-		// Desktop, Mobile 둘 다 포함
-		const container = this.shadowRoot.querySelector(".policy-links");
+  _setupPolicyLinks() {
+    // Desktop, Mobile 둘 다 포함
+    const container = this.shadowRoot.querySelector(".policy-links");
 
-		const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-		if (isMobile) {
-			container.innerHTML = `
+    if (isMobile) {
+      container.innerHTML = `
         <a href="/pdf/DEXIS_Korea_terms.pdf" target="_blank">이용 약관</a>
         <a href="/pdf/DEXIS_Korea_privacy_policy.pdf" target="_blank">개인정보 보호정책</a>
         <a href="/pdf/DEXIS_Korea_cookie.pdf" target="_blank">쿠키 정책</a>
@@ -169,8 +174,8 @@ class AppFooter extends HTMLElement {
         <a href="/pdf/DEXIS_Korea_EULA.pdf" target="_blank">최종 사용자 사용권 계약</a>
         <a href="/pdf/DEXIS_Korea_patent.pdf" target="_blank">특허</a>
       `;
-		} else {
-			container.innerHTML = `
+    } else {
+      container.innerHTML = `
         <a href="javascript:void(0)" onclick="openModal('/pdf/DEXIS_Korea_terms.pdf')">이용 약관</a>
         <a href="javascript:void(0)" onclick="openModal('/pdf/DEXIS_Korea_privacy_policy.pdf')">개인정보 보호정책</a>
         <a href="javascript:void(0)" onclick="openModal('/pdf/DEXIS_Korea_cookie.pdf')">쿠키 정책</a>
@@ -178,8 +183,8 @@ class AppFooter extends HTMLElement {
         <a href="javascript:void(0)" onclick="openModal('/pdf/DEXIS_Korea_EULA.pdf')">최종 사용자 사용권 계약</a>
         <a href="javascript:void(0)" onclick="openModal('/pdf/DEXIS_Korea_patent.pdf')">특허</a>
       `;
-		}
-	}
+    }
+  }
 }
 
 customElements.define("app-footer", AppFooter);
