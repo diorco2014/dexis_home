@@ -25,7 +25,7 @@ function insertCommonHead(options = {}) {
     <!-- 기본 공통 스타일 -->
     <link rel="stylesheet" href="/style.css?ver=1.8.6" />
     <link rel="stylesheet" href="/modal.css?ver=1.7.9" />
-    <link rel="stylesheet" href="/popup.css?ver=1.8.0" />
+    <link rel="stylesheet" href="/popup.css?ver=1.8.1" />
     <link rel="stylesheet" href="/carepopup.css?ver=1.7.9" />
   `;
 

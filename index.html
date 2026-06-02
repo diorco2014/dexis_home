@@ -630,7 +630,8 @@
     <div class="popup-scroll">
       <div class="popup-container-box">
         <div class="popup-container">
-          <div id="popup">
+          <!-- 현재: 디지털 Workflow 체험 캠페인 -->
+          <div id="popup" class="popup">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSflt4tO8RMq3Hi-QI7ZnVeNwX2EaJKxQkSq27VmG8vyBLTfgw/viewform"
               target="_blank"
@@ -658,11 +659,11 @@
                 <input type="checkbox" id="dont-show-today" />
                 <span class="popup-label-text">오늘 하루 보지 않기</span>
               </label>
-              <button onclick="closePopup()">닫기</button>
+              <button onclick="closePopupByIndex(0)">닫기</button>
             </div>
           </div>
-
-          <div id="popup2">
+          <!-- 현재: 구강보건의 날 -->
+          <div id="popup2" class="popup">
             <a href="contact.html#contact_us">
               <img
                 src="/images/popup/popup_260522.png"
@@ -677,7 +678,34 @@
                 <input type="checkbox" id="dont-show-today2" />
                 <span class="popup-label-text">오늘 하루 보지 않기</span>
               </label>
-              <button onclick="closePopup2()">닫기</button>
+              <button onclick="closePopupByIndex(1)">닫기</button>
+            </div>
+          </div>
+
+          <div id="popup3" class="popup">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdFuR0kTsiFxH-_DA4sJBeTL3ItB47Mhl11lDSuXn41t5-ZFw/viewform"
+              target="_blank"
+            >
+              <img
+                src="/images/popup/popup_260602.png"
+                alt="구강 보건의날 이벤트"
+              />
+            </a>
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdFuR0kTsiFxH-_DA4sJBeTL3ItB47Mhl11lDSuXn41t5-ZFw/viewform"
+              target="_blank"
+              class="popup-cta"
+              >문의하기</a
+            >
+
+            <div class="popup-footer">
+              <label>
+                <input type="checkbox" id="dont-show-today3" />
+                <span class="popup-label-text">오늘 하루 보지 않기</span>
+              </label>
+              <button onclick="closePopupByIndex(2)">닫기</button>
             </div>
           </div>
         </div>
@@ -777,7 +805,7 @@
     <script src="script.js?ver=2"></script>
     <script src="carousel.js?ver=1.0"></script>
     <script src="modal.js?ver=1.7.9"></script>
-    <script src="popup.js?ver=1.8.5"></script>
+    <script src="popup.js?ver=1.8.6"></script>
     <script src="carepopup.js?ver=1.7.9"></script>
   </body>
 </html>

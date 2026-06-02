@@ -1,63 +1,87 @@
+const POPUPS = [
+  {
+    popupId: "popup",
+    checkboxId: "dont-show-today",
+    storageKey: "popupHiddenDate",
+  },
+  {
+    popupId: "popup2",
+    checkboxId: "dont-show-today2",
+    storageKey: "popupHiddenDate2",
+  },
+  {
+    popupId: "popup3",
+    checkboxId: "dont-show-today3",
+    storageKey: "popupHiddenDate3",
+  },
+];
+
 function getTodayString() {
   const today = new Date();
-  return today.toISOString().slice(0, 10); // YYYY-MM-DD
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const date = String(today.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${date}`;
 }
 
-function shouldShowPopup() {
-  const hiddenDate = localStorage.getItem("popupHiddenDate");
+function shouldShowPopup(storageKey) {
+  const hiddenDate = localStorage.getItem(storageKey);
   return hiddenDate !== getTodayString();
 }
 
-function shouldShowPopup2() {
-  const hiddenDate = localStorage.getItem("popupHiddenDate2");
-  return hiddenDate !== getTodayString();
+function isHidden(element) {
+  if (!element) return true;
+
+  return window.getComputedStyle(element).display === "none";
 }
 
 function updateContainerVisibility() {
-  const p1 = document.getElementById("popup");
-  const p2 = document.getElementById("popup2");
   const scroll = document.querySelector(".popup-scroll");
 
-  const p1Hidden = p1.style.display === "none" || p1.style.display === "";
-  const p2Hidden = p2.style.display === "none" || p2.style.display === "";
+  if (!scroll) return;
 
-  scroll.style.display = p1Hidden && p2Hidden ? "none" : "";
+  const allHidden = POPUPS.every(({ popupId }) => {
+    const popup = document.getElementById(popupId);
+    return isHidden(popup);
+  });
+
+  scroll.style.display = allHidden ? "none" : "";
 }
 
-function closePopup() {
-  const dontShow = document.getElementById("dont-show-today").checked;
-  if (dontShow) {
-    localStorage.setItem("popupHiddenDate", getTodayString());
+function closePopupByIndex(index) {
+  const popupInfo = POPUPS[index];
+
+  if (!popupInfo) return;
+
+  const popup = document.getElementById(popupInfo.popupId);
+  const checkbox = document.getElementById(popupInfo.checkboxId);
+
+  if (!popup) return;
+
+  if (checkbox?.checked) {
+    localStorage.setItem(popupInfo.storageKey, getTodayString());
   }
-  document.getElementById("popup").style.display = "none";
+
+  popup.style.display = "none";
   updateContainerVisibility();
 }
 
-function closePopup2() {
-  const dontShow = document.getElementById("dont-show-today2").checked;
-  if (dontShow) {
-    localStorage.setItem("popupHiddenDate2", getTodayString());
-  }
-  document.getElementById("popup2").style.display = "none";
-  updateContainerVisibility();
-}
-
-window.onload = function () {
-  updateContainerVisibility();
-
+window.addEventListener("load", function () {
   const isIndex = location.pathname === "/";
-  console.log(isIndex);
-  if (!isIndex) return;
 
-  if (shouldShowPopup()) {
-    // 예원: 팝업 안보이게 처리 (2026-03-12) show : "block", hide: "none"
-    document.getElementById("popup").style.display = "block";
+  if (!isIndex) {
+    updateContainerVisibility();
+    return;
   }
 
-  if (shouldShowPopup2()) {
-    // 예원: 팝업 안보이게 처리 (2026-03-12) show : "block", hide: "none"
-    document.getElementById("popup2").style.display = "block";
-  }
+  POPUPS.forEach(({ popupId, storageKey }) => {
+    const popup = document.getElementById(popupId);
+
+    if (!popup) return;
+
+    popup.style.display = shouldShowPopup(storageKey) ? "block" : "none";
+  });
 
   updateContainerVisibility();
-};
+});
