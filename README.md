@@ -35,7 +35,7 @@ http://127.0.0.1
 ## 4. 주요 페이지
 
 - `index.html`: 메인 랜딩
-- `contact.html`: 문의하기 폼
+- `contact.html`: 문의하기(데모 및 구매 상담) 폼
 - `care.html`: 프리미엄 케어 요청 폼
 - `service.html`: A/S 신청 폼
 - `utilizations.html`: 유튜브 영상 목록

@@ -20,10 +20,10 @@ function insertCommonHead(options = {}) {
     <meta name="description" content="${meta.description}" />
 
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link href="/nanum-gothic.css?v?1.0.0" rel="stylesheet" />
+    <link href="/nanum-gothic.css?ver=1.0.0" rel="stylesheet" />
 
     <!-- 기본 공통 스타일 -->
-    <link rel="stylesheet" href="/style.css?ver=1.8.6" />
+    <link rel="stylesheet" href="/style.css?ver=${Date.now()}" />
     <link rel="stylesheet" href="/modal.css?ver=1.7.9" />
     <link rel="stylesheet" href="/popup.css?ver=1.8.6" />
     <link rel="stylesheet" href="/carepopup.css?ver=1.7.9" />

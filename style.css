@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'NanumGothic', sans-serif;
+  font-family: "NanumGothic", sans-serif;
   font-optical-sizing: auto;
   box-sizing: border-box;
   line-height: 1.5;
@@ -107,6 +107,9 @@ body {
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Section 2 (testimonial) */
@@ -119,7 +122,6 @@ body {
   align-items: center;
   padding: 70px 0px;
 }
-
 
 #features {
   padding: 60px 20px;
@@ -592,7 +594,7 @@ tbody tr:nth-child(even) {
 }
 
 .download-link::before {
-  content: '🔸'; /* 또는 Font Awesome: \f019 */
+  content: "🔸"; /* 또는 Font Awesome: \f019 */
   margin-right: 0.4em;
   font-size: 1em;
   vertical-align: text-top;
@@ -639,7 +641,6 @@ tbody tr:nth-child(even) {
   max-width: 100%;
   height: auto;
 }
-
 
 @media (max-width: 1430px) {
   .features-content {

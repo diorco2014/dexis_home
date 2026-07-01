@@ -190,7 +190,7 @@ class AppHeader extends HTMLElement {
               <li data-key="features"><a href="${isIndex ? "#features" : "index.html#features"}">특징</a></li>
               <li data-key="specs"><a href="${isIndex ? "#specifications" : "index.html#specifications"}">사양</a></li>
               <li data-key="downloads"><a href="${isIndex ? "#downloads" : "index.html#downloads"}">다운로드</a></li>
-              <li data-key="contact"><a href="contact.html">문의하기</a></li>
+              <li data-key="contact"><a href="contact.html">데모 및 구매 상담</a></li>
               <li data-key="premiumcare"><a href="${isIndex ? "#premiumcare" : "index.html#premiumcare"}">프리미엄케어</a></li>
               <li data-key="care"><a href="care.html">케어 요청</a></li>
               <li data-key="util"><a href="utilizations.html">활용방</a></li>

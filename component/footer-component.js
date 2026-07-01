@@ -130,7 +130,7 @@ class AppFooter extends HTMLElement {
             <h4>지원</h4>
             <ul>
               <li><a href="/service.html">A/S 신청</a></li>
-              <li><a href="/contact.html">문의하기</a></li>
+              <li><a href="/contact.html">데모 및 구매 상담</a></li>
               <li><a href="${downloadHref}">IS 3800 User Guide</a></li>
               <li><a href="https://www.youtube.com/@dexiskorea" target="_blank">유튜브</a></li>
             </ul>

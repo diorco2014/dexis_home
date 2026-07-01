@@ -1,9 +1,9 @@
 class AppWorkingHours extends HTMLElement {
-	constructor() {
-		super();
-		this.attachShadow({ mode: "open" });
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
 
-		this.shadowRoot.innerHTML = `
+    this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: block;
@@ -75,13 +75,13 @@ class AppWorkingHours extends HTMLElement {
           </div>
 
           <div class="culumn">
-            <h3>문의</h3>
+            <h3>데모 및 구매 상담</h3>
             <p>070-5030-3605<br />info@dexiskorea.com</p>
           </div>
         </div>
       </section>
     `;
-	}
+  }
 }
 
 customElements.define("app-working-hours", AppWorkingHours);
